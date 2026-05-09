@@ -1,0 +1,245 @@
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  align-items: center;
+  gap: 4rem;
+  min-height: 100vh;
+  padding: 100px 3rem 3rem;
+  background-image: url('../assets/mountain.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to right, rgba(5, 5, 7, 0.97) 40%, rgba(5, 5, 7, 0.7));
+}
+
+.content,
+.photoCol {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.4rem 1rem;
+  color: var(--accent2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s ease infinite;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+}
+
+.nameAccent {
+  color: var(--accent);
+}
+
+.role {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+}
+
+.desc {
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btnPrimary,
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary {
+  color: var(--white);
+  background: var(--accent);
+  border: none;
+}
+
+.btnPrimary:hover {
+  background: #5b54e6;
+  transform: scale(1.02);
+}
+
+.btnOutline {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.btnOutline:hover {
+  color: var(--white);
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.02);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  padding: 0.5rem 1rem;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialLink:hover {
+  color: var(--white);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.16);
+}
+
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.photoWrap {
+  width: 280px;
+  height: 360px;
+  padding: 2px;
+  background: linear-gradient(135deg, #6c63ff, #a78bfa);
+  border-radius: 24px;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.statCard {
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.statNum {
+  color: var(--accent2);
+  font-family: 'Syne', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.statLabel {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btnPrimary:focus-visible,
+.btnOutline:focus-visible,
+.socialLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 96px 1.5rem 3rem;
+  }
+
+  .photoCol {
+    grid-row: 1;
+  }
+
+  .content {
+    grid-row: 2;
+  }
+
+  .overlay {
+    background: rgba(5, 5, 7, 0.86);
+  }
+}
+
+@media (max-width: 480px) {
+  .btns {
+    flex-direction: column;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    width: 100%;
+  }
+
+  .photoWrap {
+    width: min(260px, 100%);
+    height: 330px;
+  }
+}

@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import emailjs from '@emailjs/browser'
 
-emailjs.init('u6RdJWvsSg33Eygu3')
+emailjs.init(import.meta.env.VITE_EMAILJS_KEY)
 
 
 createRoot(document.getElementById('root')).render(
