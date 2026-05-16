@@ -32,9 +32,9 @@ export default function About() {
                 ['Location', 'Auckland, NZ'],
                 ['Origin', 'Pokhara, Nepal'],
                 ['Study', 'BIT @ Otago Poly AIC'],
-                ['Role', 'Junior Web Dev'],
+                ['Role', 'IT roles'],
                 ['Email', 'ayushdbs77@gmail.com'],
-                ['Status', 'Open to Work ✓'],
+                ['Status', 'Open to Work '],
               ].map(([label, val]) => (
                 <div key={label} className={styles.infoItem}>
                   <div className={styles.infoLabel}>{label}</div>
@@ -51,7 +51,7 @@ export default function About() {
                 ['School', 'Strong academic record through Grade 10. Science stream with biology.'],
                 ['The Shift', 'Discovered web development. Dream evolved from nursing to IT.'],
                 ['Apr 2025', 'Moved to Auckland, NZ. Started BIT at Otago Polytechnic AIC.'],
-                ['Now', 'Studying, building real projects, open to Junior Web Dev roles.'],
+                ['Now', 'Studying, building real projects, open to IT roles and Internships.'],
               ].map(([year, text]) => (
                 <div key={year} className={styles.tmItem}>
                   <div className={styles.tmDot} />

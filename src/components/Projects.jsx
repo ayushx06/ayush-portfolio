@@ -23,7 +23,7 @@ const projects = [
     tech: ['HTML5', 'CSS3', 'JavaScript'],
     badges: [{ label: 'Coming Soon', className: styles.soonBadge }],
     link: 'https://github.com/ayushx06',
-    linkLabel: '🐙 GitHub',
+    linkLabel: ' GitHub',
     previewClass: styles.previewNext,
     dim: true,
   },
