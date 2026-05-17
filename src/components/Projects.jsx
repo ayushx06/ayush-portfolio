@@ -6,24 +6,32 @@ const projects = [
   {
     image: Shiva,
     title: 'Shiva Trekking Guide Nepal',
-    desc: 'Full professional website for a private trekking guide. Features trek packages, interactive price calculator, booking calendar, gallery, and WhatsApp integration. Built and deployed from scratch.',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive', 'SEO'],
+    problem: 'A local trekking guide needed a credible online presence that made packages, pricing, trust signals, and enquiries easy for international visitors.',
+    solution: 'Designed and built a responsive website with trekking packages, an interactive price calculator, booking calendar, gallery, WhatsApp contact, and SEO-friendly content.',
+    result: 'Created a live business website that presents the service professionally and gives visitors faster paths to enquire or book.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'SEO'],
     badges: [
-      { label: 'Live', className: styles.liveBadge },
+      { label: 'Live Project', className: styles.liveBadge },
       { label: 'Featured', className: styles.featuredBadge },
     ],
-    link: 'https://www.shivatrekkingguidenepal.com',
-    linkLabel: 'Live Site',
+    links: [
+      { href: 'https://www.shivatrekkingguidenepal.com', label: 'Live Site' },
+      { href: 'https://github.com/ayushx06', label: 'GitHub' },
+    ],
     accent: 'purple',
   },
   {
     image: project,
     title: 'BIT Coursework & Learning Projects',
-    desc: 'Actively studying networking, systems analysis, and software engineering at Otago Poly AIC. Follow my GitHub to see what I am building as I learn.',
+    problem: 'As a BIT student, I need to build evidence across more than frontend work: systems thinking, networking, data, troubleshooting, and software fundamentals.',
+    solution: 'Use coursework and personal practice to document small, focused projects in Python, SQL, networking concepts, systems analysis, and web development.',
+    result: 'Growing a practical portfolio that shows learning momentum and readiness for entry-level IT, helpdesk, support, and internship roles.',
     tech: ['Python', 'Networking', 'Systems Design', 'SQL'],
-    badges: [{ label: 'In Progress', className: styles.progressBadge }],
-    link: 'https://github.com/ayushx06',
-    linkLabel: 'View GitHub',
+    badges: [
+      { label: 'Coursework', className: styles.courseBadge },
+      { label: 'In Progress', className: styles.progressBadge },
+    ],
+    links: [{ href: 'https://github.com/ayushx06', label: 'View GitHub' }],
     accent: 'cyan',
   },
 ]
@@ -49,12 +57,39 @@ export default function Projects() {
                     <span key={b.label} className={`${styles.badge} ${b.className}`}>{b.label}</span>
                   ))}
                 </div>
-                <h3 className={styles.cardTitle}>{proj.title}</h3>
-                <p className={styles.desc}>{proj.desc}</p>
-                <div className={styles.techRow}>
-                  {proj.tech.map(t => <span key={t} className={styles.pill}>{t}</span>)}
+                <div className={styles.headingRow}>
+                  <h3 className={styles.cardTitle}>{proj.title}</h3>
                 </div>
-                <a href={proj.link} target="_blank" rel="noreferrer" className={styles.link}>{proj.linkLabel}</a>
+
+                <div className={styles.caseGrid}>
+                  <div className={styles.caseBlock}>
+                    <span className={styles.caseLabel}>Problem</span>
+                    <p>{proj.problem}</p>
+                  </div>
+                  <div className={styles.caseBlock}>
+                    <span className={styles.caseLabel}>Solution</span>
+                    <p>{proj.solution}</p>
+                  </div>
+                  <div className={styles.caseBlock}>
+                    <span className={styles.caseLabel}>Result / Impact</span>
+                    <p>{proj.result}</p>
+                  </div>
+                </div>
+
+                <div className={styles.stackBlock}>
+                  <span className={styles.caseLabel}>Tech Stack</span>
+                  <div className={styles.techRow}>
+                    {proj.tech.map(t => <span key={t} className={styles.pill}>{t}</span>)}
+                  </div>
+                </div>
+
+                <div className={styles.actionRow}>
+                  {proj.links.map(link => (
+                    <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className={styles.link}>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </article>
           ))}

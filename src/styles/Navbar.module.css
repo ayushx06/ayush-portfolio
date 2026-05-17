@@ -9,12 +9,13 @@
   justify-content: space-between;
   gap: 1.5rem;
   padding: 1.05rem 3rem;
-  background: rgba(7, 9, 15, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(20px);
 }
 
 .logo {
+  position: relative;
   color: transparent;
   background: var(--premium-gradient);
   background-clip: text;
@@ -23,6 +24,13 @@
   font-weight: 800;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 10px var(--accent-glow));
+  transform: translateY(-1px);
 }
 
 .navRight {
@@ -97,6 +105,7 @@
   transform: scaleX(1);
 }
 
+.themeButton,
 .menuButton {
   display: none;
   align-items: center;
@@ -112,6 +121,12 @@
   transition: all 0.3s ease;
 }
 
+.themeButton {
+  display: inline-flex;
+  color: var(--accent2);
+}
+
+.themeButton:hover,
 .menuButton:hover {
   border-color: rgba(6, 182, 212, 0.35);
   box-shadow: 0 0 18px rgba(6, 182, 212, 0.16);
@@ -124,6 +139,7 @@
 
 .logo:focus-visible,
 .tab:focus-visible,
+.themeButton:focus-visible,
 .menuButton:focus-visible {
   outline: 2px solid var(--accent2);
   outline-offset: 3px;
@@ -152,8 +168,9 @@
     width: calc(100% + 2.5rem);
     margin: 1rem -1.25rem -1rem;
     padding: 0.8rem 1.25rem 1rem;
-    background: rgba(7, 9, 15, 0.92);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--nav-bg);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.18);
   }
 
   .mobileMenuOpen {
@@ -175,6 +192,14 @@
 }
 
 @media (max-width: 420px) {
+  .navRight {
+    gap: 0.55rem;
+  }
+
+  .workPill {
+    display: none;
+  }
+
   .logo {
     max-width: 120px;
     font-size: 0.95rem;

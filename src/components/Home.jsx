@@ -19,11 +19,12 @@ export default function Home() {
           <span className={styles.nameAccent}>Subedi</span>
         </h1>
 
-        <p className={styles.role}>IT Student & Developer | Open to All IT Roles</p>
+        <p className={styles.role}>BIT Student & Aspiring IT Professional</p>
         <p className={styles.desc}>
-          From Nepal to Auckland, I am studying a Bachelor of IT at Otago
-          Polytechnic AIC and building a practical foundation across software,
-          networking, systems, databases, support, and cybersecurity.
+          Open to IT support, web development, helpdesk, networking, junior
+          systems, internship, and entry-level IT roles in Auckland. I bring a
+          practical BIT foundation across software, systems, databases, support,
+          and professional troubleshooting.
         </p>
 
         <div className={styles.btns}>

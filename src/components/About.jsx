@@ -3,14 +3,14 @@ import styles from '../styles/About.module.css'
 
 const bringItems = [
   {
-    icon: '🎓',
+    icon: 'IT',
     title: 'Broad IT Foundation',
-    text: 'BIT covers networking, systems, databases, cybersecurity, and software dev — not just web.',
+    text: 'BIT coursework across networking, systems, databases, cybersecurity, professional practice, and software development.',
   },
   {
-    icon: '📍',
+    icon: 'NZ',
     title: 'Based in Auckland',
-    text: 'Living in Auckland. Available immediately.',
+    text: 'Available for internships, IT support, helpdesk, networking, junior systems, and web development opportunities.',
   },
 ]
 
@@ -33,10 +33,9 @@ export default function About() {
 
           <div>
             <h3 className={styles.cardTitle}>My Story</h3>
-            <p className={styles.p}>I was born in <strong className={styles.strong}>2006</strong> in Pokhara, Nepal — a city surrounded by mountains and full of heart. Growing up, I was always the curious one: observing how things worked, asking questions, and diving deep into details others overlooked.</p>
-            <p className={styles.p}>My original dream was to become a nurse, so I pursued higher secondary in the science stream with biology. But technology kept pulling me in. The more I explored code, systems, and digital experiences, the more I knew IT was where I truly belonged. My dream did not break. It evolved.</p>
-            <p className={styles.p}>On <strong className={styles.strong}>18 April 2025</strong>, I landed in Auckland, New Zealand to pursue a <strong className={styles.strong}>Bachelor of IT at Otago Polytechnic Auckland International Campus</strong>. The BIT gives me a wider IT base than web alone: programming, networking, operating systems, databases, cybersecurity, systems analysis, and professional practice.</p>
-            <p className={styles.p}>I am open to the entry point that lets me prove myself: web development, IT support, helpdesk, networking, junior systems work, or internships. I care about learning quickly, showing up reliably, and becoming useful to a team.</p>
+            <p className={styles.p}>I grew up in <strong className={styles.strong}>Pokhara, Nepal</strong>, where curiosity and discipline shaped how I learn. I started in the science stream with biology, but technology kept pulling me toward systems, problem solving, and digital experiences.</p>
+            <p className={styles.p}>On <strong className={styles.strong}>18 April 2025</strong>, I moved to Auckland to study a <strong className={styles.strong}>Bachelor of IT at Otago Polytechnic Auckland International Campus</strong>. The BIT gives me a practical base across programming, networking, operating systems, databases, cybersecurity, systems analysis, and professional practice.</p>
+            <p className={styles.p}>I am open to the entry point where I can be useful and keep growing: IT support, helpdesk, web development, networking, junior systems, internships, or entry-level IT roles. I value reliability, clear communication, and learning quickly on the job.</p>
           </div>
         </div>
 
@@ -51,7 +50,7 @@ export default function About() {
                 ['Origin', 'Pokhara, Nepal'],
                 ['Study', 'BIT @ Otago Poly AIC'],
                 ['Email', 'ayushdbs77@gmail.com'],
-                ['Status', 'Open to Work'],
+                ['Status', 'Open to IT Roles'],
               ].map(([label, val]) => (
                 <div key={label} className={label === 'Status' ? `${styles.infoItem} ${styles.statusItem}` : styles.infoItem}>
                   <div className={styles.infoLabel}>{label}</div>
@@ -69,10 +68,10 @@ export default function About() {
             <div className={styles.timeline}>
               {[
                 ['2006', 'Born in Pokhara, Nepal. Grew up curious and detail-oriented.'],
-                ['School', 'Strong academic record through Grade 10. Science stream with biology.'],
-                ['The Shift', 'Discovered technology. Dream evolved from nursing to IT.'],
+                ['School', 'Science background with strong curiosity for how systems work.'],
+                ['The Shift', 'Moved from a health-science path into IT and practical problem solving.'],
                 ['Apr 2025', 'Moved to Auckland, NZ. Started BIT at Otago Polytechnic AIC.'],
-                ['Now', 'Studying development, networks, systems, databases, and support skills while applying for IT roles and internships.'],
+                ['Now', 'Studying development, networks, systems, databases, and support skills while applying for IT roles.'],
               ].map(([year, text]) => (
                 <div key={year} className={styles.tmItem}>
                   <div className={styles.tmDot} />

@@ -21,7 +21,7 @@
   z-index: 1;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 4rem 3rem;
+  padding: var(--page-pad);
 }
 
 .title {
@@ -49,11 +49,12 @@
 
 .card {
   padding: 1.75rem;
-  background: rgba(20, 20, 31, 0.8);
-  border: 1px solid rgba(108, 99, 255, 0.12);
-  border-radius: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow);
   backdrop-filter: blur(10px);
-  transition: border-color 0.3s, transform 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .card:hover {
@@ -86,7 +87,7 @@
   gap: 0.45rem;
   margin-bottom: 0.35rem;
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -117,7 +118,7 @@
   padding: 0.3rem 0.85rem;
   color: var(--muted);
   background: var(--bg3);
-  border: 1px solid var(--muted2);
+  border: 1px solid var(--border-strong);
   border-radius: 6px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
@@ -144,7 +145,7 @@
 .driveTitle {
   margin-bottom: 1rem;
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -165,6 +166,12 @@
   border-radius: 30px;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.trait:hover {
+  border-color: rgba(6, 182, 212, 0.32);
+  transform: translateY(-2px);
 }
 
 @keyframes learningPulse {
@@ -181,10 +188,6 @@
 }
 
 @media (max-width: 800px) {
-  .inner {
-    padding: 3rem 1.5rem;
-  }
-
   .grid {
     grid-template-columns: 1fr;
   }

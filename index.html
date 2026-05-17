@@ -4,14 +4,76 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ayush Subedi — Junior Web Developer | Auckland, NZ</title>
-    <meta name="description" content="Portfolio of Ayush Subedi, a junior web developer based in Auckland, NZ. Available for junior roles, internships, and freelance work." />
-    <meta property="og:title" content="Ayush Subedi — Junior Web Developer" />
-    <meta property="og:description" content="Junior web developer from Nepal, building in Auckland, NZ." />
+    <script>
+      (() => {
+        try {
+          const theme = localStorage.getItem('theme') || 'dark'
+          document.documentElement.dataset.theme = theme
+        } catch {
+          document.documentElement.dataset.theme = 'dark'
+        }
+      })()
+    </script>
+    <title>Ayush Subedi — BIT Student & Aspiring IT Professional | Auckland, NZ</title>
+    <meta name="description" content="Portfolio of Ayush Subedi, a BIT student at Otago Polytechnic Auckland International Campus. Open to IT support, web development, helpdesk, networking, junior systems, internships, and entry-level IT roles in Auckland, New Zealand." />
+    <meta name="keywords" content="Ayush Subedi, BIT student Auckland, aspiring IT professional, IT support Auckland, helpdesk, web developer, networking, junior systems, internship, entry level IT, Otago Polytechnic Auckland International Campus" />
+    <meta name="author" content="Ayush Subedi" />
+    <meta name="theme-color" content="#07090f" />
+    <link rel="canonical" href="https://subayush.vercel.app/" />
+    <meta property="og:title" content="Ayush Subedi — BIT Student & Aspiring IT Professional" />
+    <meta property="og:description" content="Auckland-based BIT student open to IT support, helpdesk, networking, web development, internships, and entry-level IT roles." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://subayush.vercel.app/" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ayush Subedi — Junior Web Developer" />
+    <meta property="og:site_name" content="Ayush Subedi Portfolio" />
+    <meta property="og:locale" content="en_NZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ayush Subedi — BIT Student & Aspiring IT Professional" />
+    <meta name="twitter:description" content="Portfolio of Ayush Subedi, Auckland-based BIT student open to IT support, web development, helpdesk, networking, internships, and entry-level IT roles." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://subayush.vercel.app/#person",
+            "name": "Ayush Subedi",
+            "url": "https://subayush.vercel.app/",
+            "sameAs": [
+              "https://github.com/ayushx06",
+              "https://www.linkedin.com/in/ayush-subedi2006/"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Auckland",
+              "addressCountry": "NZ"
+            },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Otago Polytechnic Auckland International Campus"
+            },
+            "jobTitle": "BIT Student and Aspiring IT Professional",
+            "knowsAbout": [
+              "IT Support",
+              "Helpdesk",
+              "Web Development",
+              "Networking",
+              "Junior Systems",
+              "Databases",
+              "Cybersecurity Basics"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://subayush.vercel.app/#website",
+            "url": "https://subayush.vercel.app/",
+            "name": "Ayush Subedi Portfolio",
+            "publisher": {
+              "@id": "https://subayush.vercel.app/#person"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

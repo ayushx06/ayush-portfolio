@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <p className={styles.name}>Ayush Subedi</p>
-      <p className={styles.tagline}>IT Student & Developer · Auckland NZ</p>
+      <p className={styles.tagline}>BIT Student & Aspiring IT Professional · Auckland NZ</p>
 
       <div className={styles.footerLinks}>
         <a href="https://github.com/ayushx06" target="_blank" rel="noreferrer" aria-label="GitHub" className={styles.footerIcon}>
@@ -19,7 +19,7 @@ export default function Footer() {
         </a>
       </div>
 
-      <p className={styles.meta}>Built with React · Deployed on Vercel · Open to IT Roles in Auckland NZ</p>
+      <p className={styles.meta}>Open to IT Support · Web Development · Helpdesk · Networking · Internships</p>
     </footer>
   )
 }

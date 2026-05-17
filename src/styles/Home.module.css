@@ -7,7 +7,7 @@
   min-height: 100vh;
   padding: 100px 3rem 3rem;
   overflow: hidden;
-  background-color: #07080f;
+  background-color: var(--bg);
 }
 
 .gridBg {
@@ -61,13 +61,17 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(to right, rgba(7, 8, 15, 0.96) 35%, rgba(7, 8, 15, 0.55));
+  background: var(--hero-overlay);
 }
 
 .content,
 .photoCol {
   position: relative;
   z-index: 1;
+}
+
+.photoCol {
+  animation-delay: 0.12s;
 }
 
 .name {
@@ -148,7 +152,7 @@
 .btnOutline {
   color: var(--text);
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(12px);
 }
 
@@ -171,7 +175,7 @@
   padding: 0.55rem 0.95rem;
   color: var(--muted);
   background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.74rem;
@@ -216,6 +220,7 @@
   border-radius: 28px;
   box-shadow: 0 0 60px rgba(108, 99, 255, 0.20), 0 0 120px rgba(108, 99, 255, 0.08);
   transition: all 0.3s ease;
+  animation: floatSoft 7s ease-in-out infinite;
 }
 
 .photoWrap:hover {
