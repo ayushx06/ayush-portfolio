@@ -49,7 +49,15 @@ export default function Projects() {
             <article key={proj.title} className={proj.accent === 'cyan' ? `${styles.card} ${styles.cyanCard}` : styles.card}>
               <div className={styles.scan} />
               <div className={styles.preview}>
-                <img src={proj.image} alt={proj.title} className={styles.projectImage} />
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  className={styles.projectImage}
+                  width="530"
+                  height="230"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className={styles.body}>
                 <div className={styles.badges}>

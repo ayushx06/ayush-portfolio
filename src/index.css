@@ -270,13 +270,73 @@ a {
   }
 }
 
+@media (max-width: 767px) {
+  :root {
+    --glass-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+    touch-action: pan-y;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 24% 0%, rgba(99, 102, 241, 0.1), transparent 22rem),
+      linear-gradient(135deg, var(--bg), var(--bg2) 72%, var(--bg));
+    transition-duration: 0.12s;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    opacity: 0.28;
+    transform: none;
+    animation: none;
+  }
+
+  body::after {
+    opacity: 0.08;
+  }
+
+  .fade-in {
+    animation: fadeUp 0.28s ease both;
+  }
+
+  .glass-card {
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(4px);
+    transition-duration: 0.14s;
+  }
+
+  .glass-card:hover,
+  .interactive-lift:hover {
+    box-shadow: var(--glass-shadow);
+    transform: none;
+  }
+
+  .interactive-lift {
+    transition-duration: 0.14s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
+    animation: none !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
   }
 }

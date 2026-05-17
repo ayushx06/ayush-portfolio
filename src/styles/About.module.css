@@ -338,3 +338,52 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 767px) {
+  .page {
+    overflow-x: hidden;
+  }
+
+  .page::before {
+    opacity: 0.28;
+    transform: none;
+    animation: none;
+  }
+
+  .storyCard,
+  .card,
+  .bringCard {
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(4px);
+    transition-duration: 0.14s;
+  }
+
+  .storyCard:hover,
+  .card:hover,
+  .bringCard:hover {
+    transform: none;
+  }
+
+  .photo {
+    width: min(190px, 64vw);
+    height: auto;
+    aspect-ratio: 21 / 23;
+    box-shadow: 0 0 18px rgba(108, 99, 255, 0.12);
+  }
+
+  .statusDot,
+  .tmDot {
+    box-shadow: none;
+    animation: none;
+  }
+
+  .tmDot,
+  .bringIcon {
+    transition-duration: 0.14s;
+    filter: none;
+  }
+
+  .tmItem:hover .tmDot {
+    box-shadow: none;
+  }
+}

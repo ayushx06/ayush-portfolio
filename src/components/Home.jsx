@@ -48,7 +48,14 @@ export default function Home() {
 
       <div className={`${styles.photoCol} fade-in`}>
         <div className={styles.photoWrap}>
-          <img src={profile} alt="Ayush Subedi" className={styles.photo} />
+          <img
+            src={profile}
+            alt="Ayush Subedi"
+            className={styles.photo}
+            width="286"
+            height="372"
+            fetchPriority="high"
+          />
         </div>
       </div>
     </section>

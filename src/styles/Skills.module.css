@@ -192,3 +192,37 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 767px) {
+  .page {
+    overflow-x: hidden;
+  }
+
+  .page::before {
+    opacity: 0.28;
+    background: radial-gradient(circle at 82% 10%, rgba(108, 99, 255, 0.08), transparent 20rem);
+  }
+
+  .card {
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(4px);
+    transition-duration: 0.14s;
+  }
+
+  .card:hover,
+  .pill:hover,
+  .trait:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .learningDot {
+    box-shadow: none;
+    animation: none;
+  }
+
+  .pill,
+  .trait {
+    transition-duration: 0.14s;
+  }
+}

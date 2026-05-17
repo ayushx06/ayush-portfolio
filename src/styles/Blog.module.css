@@ -334,3 +334,47 @@
     width: 100%;
   }
 }
+
+@media (max-width: 767px) {
+  .page {
+    overflow-x: hidden;
+  }
+
+  .page::before {
+    background: radial-gradient(circle at 16% 12%, rgba(6, 182, 212, 0.08), transparent 20rem);
+  }
+
+  .search,
+  .filter,
+  .card,
+  .readButton,
+  .closeButton {
+    transition-duration: 0.14s;
+  }
+
+  .filter:hover,
+  .filterActive,
+  .card:hover,
+  .readButton:hover,
+  .closeButton:hover {
+    transform: none;
+  }
+
+  .card {
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(4px);
+  }
+
+  .card:hover {
+    box-shadow: var(--glass-shadow);
+  }
+
+  .modalBackdrop {
+    backdrop-filter: blur(4px);
+    animation: none;
+  }
+
+  .modal {
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  }
+}

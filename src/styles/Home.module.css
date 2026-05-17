@@ -317,3 +317,73 @@
     height: 338px;
   }
 }
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    padding: 92px 1.25rem 2.4rem;
+    overflow-x: hidden;
+  }
+
+  .gridBg {
+    opacity: 0.32;
+    transform: none;
+    animation: none;
+  }
+
+  .glowOrb,
+  .glowOrb2,
+  .scanLine {
+    display: none;
+  }
+
+  .overlay {
+    background: linear-gradient(to bottom, rgba(7, 8, 15, 0.94), rgba(7, 8, 15, 0.64));
+  }
+
+  .nameAccent {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    background-clip: text;
+  }
+
+  .role::after {
+    animation: none;
+  }
+
+  .btnPrimary,
+  .btnOutline,
+  .socialLink,
+  .socialLink::after,
+  .photoWrap {
+    transition-duration: 0.14s;
+  }
+
+  .btnOutline {
+    backdrop-filter: blur(4px);
+  }
+
+  .btnPrimary,
+  .btnPrimary:hover,
+  .btnOutline:hover,
+  .socialLink:hover,
+  .photoWrap:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .socialLink:hover::after {
+    transform: translateX(-120%);
+  }
+
+  .photoWrap {
+    width: min(238px, 72vw);
+    height: auto;
+    aspect-ratio: 143 / 186;
+    box-shadow: 0 0 24px rgba(108, 99, 255, 0.14);
+    animation: none;
+  }
+
+  .photo {
+    height: 100%;
+  }
+}

@@ -205,3 +205,34 @@
     font-size: 0.95rem;
   }
 }
+
+@media (max-width: 767px) {
+  .nav {
+    backdrop-filter: blur(6px);
+  }
+
+  .logo,
+  .tab,
+  .tab::after,
+  .themeButton,
+  .menuButton {
+    transition-duration: 0.14s;
+  }
+
+  .logo:hover,
+  .themeButton:hover,
+  .menuButton:hover {
+    filter: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .workDot {
+    box-shadow: none;
+    animation: none;
+  }
+
+  .mobileMenu {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+  }
+}

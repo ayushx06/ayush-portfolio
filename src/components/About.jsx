@@ -27,7 +27,15 @@ export default function About() {
 
         <div className={styles.storyCard}>
           <div className={styles.photoWrap}>
-            <img src={profile} alt="Ayush Subedi" className={styles.photo} />
+            <img
+              src={profile}
+              alt="Ayush Subedi"
+              className={styles.photo}
+              width="210"
+              height="230"
+              loading="lazy"
+              decoding="async"
+            />
             <p className={styles.photoCaption}>Auckland, New Zealand</p>
           </div>
 

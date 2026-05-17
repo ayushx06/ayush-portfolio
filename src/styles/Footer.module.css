@@ -74,3 +74,19 @@
     line-height: 1.7;
   }
 }
+
+@media (max-width: 767px) {
+  .footer {
+    backdrop-filter: blur(4px);
+  }
+
+  .footerIcon {
+    box-shadow: none;
+    transition-duration: 0.14s;
+  }
+
+  .footerIcon:hover {
+    box-shadow: none;
+    transform: none;
+  }
+}

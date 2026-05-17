@@ -303,3 +303,44 @@ a.contactCard {
     align-items: flex-start;
   }
 }
+
+@media (max-width: 767px) {
+  .page {
+    overflow-x: hidden;
+  }
+
+  .page::before {
+    background: radial-gradient(circle at 18% 12%, rgba(6, 182, 212, 0.08), transparent 20rem);
+  }
+
+  .banner,
+  .contactCard,
+  .formWrap {
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(4px);
+  }
+
+  .dot {
+    box-shadow: none;
+    animation: none;
+  }
+
+  .downloadLink,
+  .contactCard,
+  .icon,
+  .input,
+  .btn {
+    transition-duration: 0.14s;
+  }
+
+  .downloadLink:hover,
+  .contactCard:hover,
+  .btn:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .contactCard:hover .icon {
+    box-shadow: none;
+  }
+}
