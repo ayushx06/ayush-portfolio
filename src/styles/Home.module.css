@@ -385,13 +385,39 @@
     width: min(210px, 62vw);
     height: auto;
     aspect-ratio: 143 / 186;
-    background: var(--card-border);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: transparent;
     border: 1px solid var(--card-border);
     box-shadow: none;
     animation: none;
   }
 
+  .photoWrap::before,
+  .photoWrap::after,
+  .photoPicture::before,
+  .photoPicture::after {
+    display: none !important;
+  }
+
+  .photoPicture {
+    position: relative;
+    z-index: 2;
+    background: transparent !important;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+
   .photo {
+    position: relative;
+    z-index: 2;
     height: 100%;
+    background: transparent !important;
+    opacity: 1 !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    object-fit: cover !important;
   }
 }
