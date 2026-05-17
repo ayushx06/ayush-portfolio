@@ -304,20 +304,22 @@ a.contactCard {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .page {
     overflow-x: hidden;
   }
 
   .page::before {
-    background: radial-gradient(circle at 18% 12%, rgba(6, 182, 212, 0.08), transparent 20rem);
+    display: none;
   }
 
   .banner,
   .contactCard,
   .formWrap {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(4px);
+    backdrop-filter: none;
   }
 
   .dot {
@@ -325,12 +327,8 @@ a.contactCard {
     animation: none;
   }
 
-  .downloadLink,
-  .contactCard,
-  .icon,
-  .input,
-  .btn {
-    transition-duration: 0.14s;
+  .downloadLink {
+    box-shadow: var(--glass-shadow);
   }
 
   .downloadLink:hover,

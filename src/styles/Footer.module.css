@@ -75,9 +75,10 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer {
-    backdrop-filter: blur(4px);
+    background: var(--surface-solid);
+    backdrop-filter: none;
   }
 
   .footerIcon {

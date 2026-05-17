@@ -101,6 +101,10 @@
   align-items: center;
 }
 
+.photoPicture {
+  display: block;
+}
+
 .photo {
   display: block;
   width: 210px;
@@ -339,23 +343,26 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .page {
     overflow-x: hidden;
   }
 
   .page::before {
-    opacity: 0.28;
-    transform: none;
-    animation: none;
+    display: none;
+  }
+
+  .page::after {
+    display: none;
   }
 
   .storyCard,
   .card,
   .bringCard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(4px);
-    transition-duration: 0.14s;
+    backdrop-filter: none;
   }
 
   .storyCard:hover,
@@ -365,10 +372,10 @@
   }
 
   .photo {
-    width: min(190px, 64vw);
+    width: min(176px, 58vw);
     height: auto;
     aspect-ratio: 21 / 23;
-    box-shadow: 0 0 18px rgba(108, 99, 255, 0.12);
+    box-shadow: none;
   }
 
   .statusDot,
@@ -379,7 +386,7 @@
 
   .tmDot,
   .bringIcon {
-    transition-duration: 0.14s;
+    box-shadow: none;
     filter: none;
   }
 

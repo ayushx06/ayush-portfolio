@@ -193,20 +193,20 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .page {
     overflow-x: hidden;
   }
 
   .page::before {
-    opacity: 0.28;
-    background: radial-gradient(circle at 82% 10%, rgba(108, 99, 255, 0.08), transparent 20rem);
+    display: none;
   }
 
   .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(4px);
-    transition-duration: 0.14s;
+    backdrop-filter: none;
   }
 
   .card:hover,
@@ -221,8 +221,8 @@
     animation: none;
   }
 
-  .pill,
-  .trait {
-    transition-duration: 0.14s;
+  .pill:hover,
+  .trait:hover {
+    border-color: var(--border-strong);
   }
 }

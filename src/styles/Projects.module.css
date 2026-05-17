@@ -100,6 +100,12 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.projectPicture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .projectImage {
   display: block;
   width: 100%;
@@ -301,27 +307,21 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .page {
     overflow-x: hidden;
   }
 
   .page::before {
-    background: radial-gradient(circle at 20% 10%, rgba(99, 102, 241, 0.08), transparent 20rem);
+    display: none;
   }
 
   .card,
   .footer {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(4px);
-  }
-
-  .card,
-  .projectImage,
-  .pill,
-  .link,
-  .footerLink {
-    transition-duration: 0.14s;
+    backdrop-filter: none;
   }
 
   .card:hover,
@@ -337,11 +337,12 @@
   }
 
   .preview {
-    height: clamp(150px, 42vw, 190px);
+    height: clamp(140px, 38vw, 170px);
+    background: var(--surface);
   }
 
   .projectImage {
-    max-height: 190px;
+    max-height: 170px;
   }
 
   .pill:hover {

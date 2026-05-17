@@ -1,4 +1,5 @@
 import profile from '../assets/profile.jpg'
+import profileMobile from '../assets/profile-mobile.jpg'
 import styles from '../styles/About.module.css'
 
 const bringItems = [
@@ -27,15 +28,18 @@ export default function About() {
 
         <div className={styles.storyCard}>
           <div className={styles.photoWrap}>
-            <img
-              src={profile}
-              alt="Ayush Subedi"
-              className={styles.photo}
-              width="210"
-              height="230"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture className={styles.photoPicture}>
+              <source srcSet={profileMobile} media="(max-width: 768px)" />
+              <img
+                src={profile}
+                alt="Ayush Subedi"
+                className={styles.photo}
+                width="210"
+                height="230"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <p className={styles.photoCaption}>Auckland, New Zealand</p>
           </div>
 

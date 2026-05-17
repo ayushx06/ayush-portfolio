@@ -1,10 +1,12 @@
 import Shiva from '../assets/Shiva.jpg'
+import ShivaMobile from '../assets/Shiva-mobile.jpg'
 import project from '../assets/project.jpg'
 import styles from '../styles/Projects.module.css'
 
 const projects = [
   {
     image: Shiva,
+    imageMobile: ShivaMobile,
     title: 'Shiva Trekking Guide Nepal',
     problem: 'A local trekking guide needed a credible online presence that made packages, pricing, trust signals, and enquiries easy for international visitors.',
     solution: 'Designed and built a responsive website with trekking packages, an interactive price calculator, booking calendar, gallery, WhatsApp contact, and SEO-friendly content.',
@@ -22,6 +24,7 @@ const projects = [
   },
   {
     image: project,
+    imageMobile: project,
     title: 'BIT Coursework & Learning Projects',
     problem: 'As a BIT student, I need to build evidence across more than frontend work: systems thinking, networking, data, troubleshooting, and software fundamentals.',
     solution: 'Use coursework and personal practice to document small, focused projects in Python, SQL, networking concepts, systems analysis, and web development.',
@@ -49,15 +52,18 @@ export default function Projects() {
             <article key={proj.title} className={proj.accent === 'cyan' ? `${styles.card} ${styles.cyanCard}` : styles.card}>
               <div className={styles.scan} />
               <div className={styles.preview}>
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className={styles.projectImage}
-                  width="530"
-                  height="230"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture className={styles.projectPicture}>
+                  <source srcSet={proj.imageMobile} media="(max-width: 768px)" />
+                  <img
+                    src={proj.image}
+                    alt={proj.title}
+                    className={styles.projectImage}
+                    width="530"
+                    height="230"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <div className={styles.body}>
                 <div className={styles.badges}>

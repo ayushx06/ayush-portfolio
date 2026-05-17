@@ -335,21 +335,13 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .page {
     overflow-x: hidden;
   }
 
   .page::before {
-    background: radial-gradient(circle at 16% 12%, rgba(6, 182, 212, 0.08), transparent 20rem);
-  }
-
-  .search,
-  .filter,
-  .card,
-  .readButton,
-  .closeButton {
-    transition-duration: 0.14s;
+    display: none;
   }
 
   .filter:hover,
@@ -361,8 +353,10 @@
   }
 
   .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(4px);
+    backdrop-filter: none;
   }
 
   .card:hover {
@@ -370,7 +364,7 @@
   }
 
   .modalBackdrop {
-    backdrop-filter: blur(4px);
+    backdrop-filter: none;
     animation: none;
   }
 

@@ -206,17 +206,11 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .nav {
-    backdrop-filter: blur(6px);
-  }
-
-  .logo,
-  .tab,
-  .tab::after,
-  .themeButton,
-  .menuButton {
-    transition-duration: 0.14s;
+    background: var(--surface-solid);
+    box-shadow: none;
+    backdrop-filter: none;
   }
 
   .logo:hover,
@@ -233,6 +227,7 @@
   }
 
   .mobileMenu {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+    background: var(--surface-solid);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 }

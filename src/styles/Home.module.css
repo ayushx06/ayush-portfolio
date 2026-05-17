@@ -237,6 +237,12 @@
   object-position: center top;
 }
 
+.photoPicture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .btnPrimary:focus-visible,
 .btnOutline:focus-visible,
 .socialLink:focus-visible {
@@ -318,17 +324,16 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .hero {
     min-height: auto;
     padding: 92px 1.25rem 2.4rem;
     overflow-x: hidden;
+    background: var(--bg);
   }
 
   .gridBg {
-    opacity: 0.32;
-    transform: none;
-    animation: none;
+    display: none;
   }
 
   .glowOrb,
@@ -338,7 +343,7 @@
   }
 
   .overlay {
-    background: linear-gradient(to bottom, rgba(7, 8, 15, 0.94), rgba(7, 8, 15, 0.64));
+    background: transparent;
   }
 
   .nameAccent {
@@ -353,13 +358,14 @@
   .btnPrimary,
   .btnOutline,
   .socialLink,
-  .socialLink::after,
   .photoWrap {
-    transition-duration: 0.14s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: none;
   }
 
   .btnOutline {
-    backdrop-filter: blur(4px);
+    background: var(--surface-solid);
+    backdrop-filter: none;
   }
 
   .btnPrimary,
@@ -372,14 +378,16 @@
   }
 
   .socialLink:hover::after {
-    transform: translateX(-120%);
+    transform: none;
   }
 
   .photoWrap {
-    width: min(238px, 72vw);
+    width: min(210px, 62vw);
     height: auto;
     aspect-ratio: 143 / 186;
-    box-shadow: 0 0 24px rgba(108, 99, 255, 0.14);
+    background: var(--card-border);
+    border: 1px solid var(--card-border);
+    box-shadow: none;
     animation: none;
   }
 
