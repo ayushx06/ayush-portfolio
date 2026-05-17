@@ -57,16 +57,22 @@ export default function Contact() {
   return (
     <div className={styles.page}>
       <div className={`${styles.inner} fade-in`}>
-        <p className={styles.eyebrow}>Get In Touch</p>
+        <p className="section-eyebrow">Get In Touch</p>
         <h1 className={styles.title}>Contact Me</h1>
-        <p className={styles.subtitle}>Open to junior web developer roles, internships, and freelance projects in Auckland or remote.</p>
+        <p className={styles.subtitle}>
+          Open to web development, IT support, helpdesk, networking roles,
+          internships, and entry-level IT opportunities in Auckland.
+        </p>
 
         <div className={styles.banner}>
           <span className={styles.dot} />
-          <p className={styles.bannerText}><strong className={styles.bannerStrong}>Currently available</strong> for Junior Web Developer roles, internships, and freelance work. Based in Auckland, NZ. International student with work rights.</p>
+          <p className={styles.bannerText}>
+            <strong className={styles.bannerStrong}>Currently available</strong> for web dev, IT support, helpdesk, networking, and internship roles. Based in Auckland, NZ. International student with work rights.
+          </p>
         </div>
 
         <a className={styles.downloadLink} href="/ayush-subedi-resume.pdf" download>
+          <span className={styles.downloadIcon}>↓</span>
           Download CV
         </a>
 

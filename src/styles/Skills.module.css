@@ -1,164 +1,191 @@
 .page {
+  position: relative;
   min-height: 100vh;
   padding-top: 70px;
+  overflow: hidden;
+}
+
+.page::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  opacity: 0.46;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(108, 99, 255, 0.1), transparent 28rem),
+    radial-gradient(circle at 16% 36%, rgba(167, 139, 250, 0.08), transparent 30rem);
 }
 
 .inner {
-  max-width: 900px;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 4rem 3rem;
 }
 
-.eyebrow {
-  margin-bottom: 0.75rem;
-  color: var(--accent);
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
 .title {
   color: var(--white);
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1;
 }
 
 .subtitle {
-  margin-top: 0.75rem;
-  margin-bottom: 2.5rem;
+  max-width: 680px;
+  margin-top: 0.85rem;
+  margin-bottom: 2rem;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.8;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
 .card {
-  margin-bottom: 1.5rem;
   padding: 1.75rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  transition: all 0.2s ease;
+  background: rgba(20, 20, 31, 0.8);
+  border: 1px solid rgba(108, 99, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s, transform 0.3s;
 }
 
 .card:hover {
-  border-color: rgba(108, 99, 255, 0.28);
+  border-color: rgba(108, 99, 255, 0.35);
+  transform: translateY(-3px);
 }
 
-.cardHeader {
+.learningCard {
+  border-style: dashed;
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.catTitle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.cardTitle {
-  margin-bottom: 1rem;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
   color: var(--white);
   font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
-.cardHeader .cardTitle {
-  margin-bottom: 0;
+.learningDot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent2);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(167, 139, 250, 0.65);
+  animation: learningPulse 1.8s ease-in-out infinite;
 }
 
-.tag {
-  padding: 0.3rem 0.75rem;
-  color: var(--accent2);
-  background: var(--accent-glow);
-  border: 1px solid rgba(108, 99, 255, 0.2);
-  border-radius: 6px;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.barItem {
-  margin-bottom: 1rem;
-}
-
-.barTop {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.4rem;
-}
-
-.barName {
-  color: var(--text);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-}
-
-.barPct {
+.catDesc {
+  margin-bottom: 1.25rem;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
 }
 
-.barTrack {
-  height: 4px;
-  overflow: hidden;
-  background: var(--muted2);
-  border-radius: 2px;
-}
-
-.barFill {
-  width: 0;
-  height: 100%;
-  background: linear-gradient(to right, var(--accent), var(--accent2));
-  border-radius: 2px;
-  transition: width 1s ease;
-}
-
-.level80 {
-  width: 80%;
-}
-
-.level75 {
-  width: 75%;
-}
-
-.level60 {
-  width: 60%;
-}
-
-.level55 {
-  width: 55%;
-}
-
-.tagRow {
+.pillRow {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.5rem;
 }
 
-.stag {
-  padding: 0.35rem 0.85rem;
+.pill {
+  padding: 0.3rem 0.85rem;
   color: var(--muted);
   background: var(--bg3);
   border: 1px solid var(--muted2);
   border-radius: 6px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
-  transition: all 0.2s ease;
+  transition: all 0.2s;
 }
 
-.stag:hover {
-  color: var(--text);
+.pill:hover {
+  color: var(--white);
   border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.2);
+  transform: translateY(-1px);
 }
 
-@media (max-width: 768px) {
+.learningPill {
+  color: var(--accent2);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.driveSection {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.driveTitle {
+  margin-bottom: 1rem;
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.traitRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.trait {
+  padding: 0.5rem 1.25rem;
+  color: var(--text);
+  background: rgba(108, 99, 255, var(--trait-opacity, 0.06));
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+@keyframes learningPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
+@media (max-width: 800px) {
   .inner {
     padding: 3rem 1.5rem;
   }
 
-  .cardHeader {
-    align-items: flex-start;
-    flex-direction: column;
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

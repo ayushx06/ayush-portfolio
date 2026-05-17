@@ -1,83 +1,121 @@
 .nav {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 3rem;
-  background: rgba(5, 5, 7, 0.85);
-  border-bottom: 1px solid var(--border);
+  gap: 1.5rem;
+  padding: 1.05rem 3rem;
+  background: rgba(7, 9, 15, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px);
 }
 
 .logo {
-  color: var(--white);
-  font-family: 'Syne', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
+  color: transparent;
+  background: var(--premium-gradient);
+  background-clip: text;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  transition: all 0.2s ease;
 }
 
-.logoAccent {
-  color: var(--accent);
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.workPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.75rem;
+  color: var(--accent2);
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.workDot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.8);
+  animation: pulse 2s ease infinite;
 }
 
 .tabs {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
-  padding: 0.3rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
 }
 
 .tab {
-  padding: 0.4rem 1.1rem;
+  position: relative;
+  padding: 0.45rem 0.78rem;
   color: var(--muted);
-  border-radius: 7px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.25s ease;
 }
 
-.tab:hover {
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
+.tab::after {
+  position: absolute;
+  right: 0.78rem;
+  bottom: 0.22rem;
+  left: 0.78rem;
+  height: 2px;
+  content: '';
+  background: var(--accent2);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
 
+.tab:hover,
 .tabActive {
   color: var(--white);
-  background: var(--accent);
 }
 
-.tabActive:hover {
-  color: var(--white);
-  background: #5b54e6;
+.tab:hover::after,
+.tabActive::after {
+  transform: scaleX(1);
 }
 
 .menuButton {
   display: none;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   color: var(--white);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
   cursor: pointer;
   font-size: 1.25rem;
-  line-height: 1;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .menuButton:hover {
-  background: var(--accent);
-  transform: scale(1.02);
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 0 18px rgba(6, 182, 212, 0.16);
+  transform: translateY(-2px);
 }
 
 .mobileMenu {
@@ -87,11 +125,11 @@
 .logo:focus-visible,
 .tab:focus-visible,
 .menuButton:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent2);
   outline-offset: 3px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .nav {
     flex-wrap: wrap;
     padding: 1rem 1.25rem;
@@ -103,8 +141,10 @@
 
   .menuButton {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  }
+
+  .workPill {
+    font-size: 0.58rem;
   }
 
   .mobileMenu {
@@ -112,8 +152,8 @@
     width: calc(100% + 2.5rem);
     margin: 1rem -1.25rem -1rem;
     padding: 0.8rem 1.25rem 1rem;
-    background: rgba(5, 5, 7, 0.96);
-    border-top: 1px solid var(--border);
+    background: rgba(7, 9, 15, 0.92);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .mobileMenuOpen {
@@ -125,5 +165,18 @@
   .mobileMenu .tab {
     width: 100%;
     padding: 0.75rem 0.9rem;
+  }
+
+  .mobileMenu .tab::after {
+    right: 0.9rem;
+    bottom: 0.45rem;
+    left: 0.9rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo {
+    max-width: 120px;
+    font-size: 0.95rem;
   }
 }

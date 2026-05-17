@@ -1,10 +1,12 @@
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
-import styles from '../styles/App.module.css'
+import styles from '../styles/Footer.module.css'
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <p className={styles.footerCopy}>© 2025 Ayush Subedi</p>
+      <p className={styles.name}>Ayush Subedi</p>
+      <p className={styles.tagline}>IT Student & Developer · Auckland NZ</p>
+
       <div className={styles.footerLinks}>
         <a href="https://github.com/ayushx06" target="_blank" rel="noreferrer" aria-label="GitHub" className={styles.footerIcon}>
           <FaGithub />
@@ -16,6 +18,8 @@ export default function Footer() {
           <FaEnvelope />
         </a>
       </div>
+
+      <p className={styles.meta}>Built with React · Deployed on Vercel · Open to IT Roles in Auckland NZ</p>
     </footer>
   )
 }

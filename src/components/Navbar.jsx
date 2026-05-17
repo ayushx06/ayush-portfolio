@@ -19,30 +19,37 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <NavLink to="/" className={styles.logo} onClick={() => setOpen(false)}>
-        A<span className={styles.logoAccent}>.</span>S
+        Ayush Subedi
       </NavLink>
 
-      <button
-        type="button"
-        className={styles.menuButton}
-        aria-label="Toggle navigation"
-        aria-expanded={open}
-        onClick={() => setOpen(prev => !prev)}
-      >
-        ☰
-      </button>
+      <div className={styles.navRight}>
+        <div className={styles.workPill}>
+          <span className={styles.workDot} />
+          Open to Work
+        </div>
 
-      <div className={styles.tabs}>
-        {tabs.map(tab => (
-          <NavLink
-            key={tab.path}
-            to={tab.path}
-            end={tab.path === '/'}
-            className={getTabClass}
-          >
-            {tab.label}
-          </NavLink>
-        ))}
+        <button
+          type="button"
+          className={styles.menuButton}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+          onClick={() => setOpen(prev => !prev)}
+        >
+          ☰
+        </button>
+
+        <div className={styles.tabs}>
+          {tabs.map(tab => (
+            <NavLink
+              key={tab.path}
+              to={tab.path}
+              end={tab.path === '/'}
+              className={getTabClass}
+            >
+              {tab.label}
+            </NavLink>
+          ))}
+        </div>
       </div>
 
       <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ''}`}>

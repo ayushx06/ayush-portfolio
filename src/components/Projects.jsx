@@ -13,19 +13,18 @@ const projects = [
       { label: 'Featured', className: styles.featuredBadge },
     ],
     link: 'https://www.shivatrekkingguidenepal.com',
-    linkLabel: '🔗 Live Site',
-    previewClass: styles.previewShiva,
+    linkLabel: 'Live Site',
+    accent: 'purple',
   },
   {
     image: project,
-    title: 'Next Project',
-    desc: 'Always building something new. Follow my GitHub to stay updated on what\'s coming next.',
-    tech: ['HTML5', 'CSS3', 'JavaScript'],
-    badges: [{ label: 'Coming Soon', className: styles.soonBadge }],
+    title: 'BIT Coursework & Learning Projects',
+    desc: 'Actively studying networking, systems analysis, and software engineering at Otago Poly AIC. Follow my GitHub to see what I am building as I learn.',
+    tech: ['Python', 'Networking', 'Systems Design', 'SQL'],
+    badges: [{ label: 'In Progress', className: styles.progressBadge }],
     link: 'https://github.com/ayushx06',
-    linkLabel: ' GitHub',
-    previewClass: styles.previewNext,
-    dim: true,
+    linkLabel: 'View GitHub',
+    accent: 'cyan',
   },
 ]
 
@@ -33,13 +32,15 @@ export default function Projects() {
   return (
     <div className={styles.page}>
       <div className={`${styles.inner} fade-in`}>
-        <p className={styles.eyebrow}>What I've Built</p>
+        <p className="section-eyebrow">What I Have Built</p>
         <h1 className={styles.title}>Projects</h1>
-        <p className={styles.subtitle}>Real projects built for real people. I learn by shipping, not just studying.</p>
+        <p className={styles.subtitle}>Real projects, active coursework, and proof that I learn by shipping.</p>
+
         <div className={styles.grid}>
           {projects.map(proj => (
-            <div key={proj.title} className={proj.dim ? `${styles.card} ${styles.dimCard}` : styles.card}>
-              <div className={`${styles.preview} ${proj.previewClass}`}>
+            <article key={proj.title} className={proj.accent === 'cyan' ? `${styles.card} ${styles.cyanCard}` : styles.card}>
+              <div className={styles.scan} />
+              <div className={styles.preview}>
                 <img src={proj.image} alt={proj.title} className={styles.projectImage} />
               </div>
               <div className={styles.body}>
@@ -55,13 +56,14 @@ export default function Projects() {
                 </div>
                 <a href={proj.link} target="_blank" rel="noreferrer" className={styles.link}>{proj.linkLabel}</a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
+
         <div className={styles.footer}>
-          <p className={styles.footerTitle}>More projects in progress</p>
+          <p className={styles.footerTitle}>More work is in motion</p>
           <p className={styles.footerText}>
-            Check my GitHub →{' '}
+            Follow the build trail on{' '}
             <a href="https://github.com/ayushx06" target="_blank" rel="noreferrer" className={styles.footerLink}>github.com/ayushx06</a>
           </p>
         </div>
