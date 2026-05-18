@@ -4,7 +4,9 @@ import './index.css'
 import App from './App.jsx'
 import emailjs from '@emailjs/browser'
 
-emailjs.init(import.meta.env.VITE_EMAILJS_KEY)
+console.log('EmailJS public key loaded', Boolean(import.meta.env.VITE_EMAILJS_PUBLIC_KEY))
+
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 
 // Analytics placeholder:
 // Add Google Analytics, Vercel Analytics, or another provider here later.
