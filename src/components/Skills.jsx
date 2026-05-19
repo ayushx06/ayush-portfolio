@@ -1,33 +1,16 @@
 import styles from '../styles/Skills.module.css'
 
-const skillGroups = [
-  {
-    category: 'Frontend',
-    icon: '◈',
-    desc: 'Building interfaces people enjoy using',
-    skills: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Responsive Design', 'Vite'],
-  },
-  {
-    category: 'Backend & Data',
-    icon: '◇',
-    desc: 'Logic, data, and making things work',
-    skills: ['Python', 'SQL', 'SQLite', 'REST APIs'],
-  },
-  {
-    category: 'Tools & Workflow',
-    icon: '○',
-    desc: 'How I build and ship',
-    skills: ['Git', 'GitHub', 'VS Code', 'Vercel', 'Chrome DevTools', 'Figma'],
-  },
-  {
-    category: 'Currently Learning',
-    icon: '◉',
-    desc: 'What I am actively studying in BIT',
-    skills: ['Networking Fundamentals', 'Linux CLI', 'Systems Analysis', 'Cybersecurity Basics', 'Database Design'],
-  },
+const proficiencies = [
+  { skill: 'HTML/CSS', level: 85, desc: 'Responsive layouts, accessibility basics, polished visual systems' },
+  { skill: 'JavaScript', level: 70, desc: 'DOM logic, APIs, interaction patterns, form handling' },
+  { skill: 'React', level: 65, desc: 'Components, routing, hooks, Vite projects, stateful UI' },
+  { skill: 'Python', level: 60, desc: 'Coursework practice, scripting, problem solving fundamentals' },
+  { skill: 'SQL', level: 55, desc: 'Database basics, queries, schema thinking, data practice' },
+  { skill: 'Git', level: 75, desc: 'Version control, GitHub workflow, deployment habits' },
 ]
 
 const traits = ['Fast Learner', 'Attention to Detail', 'Resilient', 'Self-driven', 'Adaptable', 'Curious']
+const learningItems = ['Networking Fundamentals', 'Linux CLI', 'Systems Analysis', 'Cybersecurity Basics', 'Database Design']
 
 export default function Skills() {
   return (
@@ -41,41 +24,36 @@ export default function Skills() {
         </p>
 
         <div className={styles.grid}>
-          {skillGroups.map(group => {
-            const isLearning = group.category === 'Currently Learning'
-
-            return (
-              <section
-                key={group.category}
-                className={isLearning ? `${styles.card} ${styles.learningCard}` : styles.card}
-              >
-                <div className={styles.cardHead}>
-                  <div className={styles.icon}>{group.icon}</div>
-                  <div>
-                    <h2 className={styles.catTitle}>
-                      {isLearning && <span className={styles.learningDot} />}
-                      {group.category}
-                    </h2>
-                    <p className={styles.catDesc}>{group.desc}</p>
-                  </div>
+          {proficiencies.map(item => (
+            <section key={item.skill} className={styles.card} data-reveal style={{ '--level': `${item.level}%` }}>
+              <div className={styles.cardHead}>
+                <div className={styles.ring} aria-label={`${item.skill} proficiency ${item.level}%`}>
+                  <span>{item.level}%</span>
                 </div>
-
-                <div className={styles.pillRow}>
-                  {group.skills.map(skill => (
-                    <span
-                      key={skill}
-                      className={isLearning ? `${styles.pill} ${styles.learningPill}` : styles.pill}
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div>
+                  <h2 className={styles.catTitle}>{item.skill}</h2>
+                  <p className={styles.catDesc}>{item.desc}</p>
                 </div>
-              </section>
-            )
-          })}
+              </div>
+              <div className={styles.progressTrack} aria-hidden="true">
+                <span />
+              </div>
+            </section>
+          ))}
         </div>
 
-        <div className={styles.driveSection}>
+        <div className={styles.learningTicker} data-reveal>
+          <span className={styles.learningDot} />
+          <div className={styles.tickerMask}>
+            <div className={styles.tickerTrack}>
+              {[...learningItems, ...learningItems].map((item, index) => (
+                <span key={`${item}-${index}`}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.driveSection} data-reveal>
           <h2 className={styles.driveTitle}>What Drives Me</h2>
           <div className={styles.traitRow}>
             {traits.map((trait, index) => (

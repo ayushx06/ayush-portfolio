@@ -59,7 +59,7 @@
 }
 
 .search {
-  min-height: 44px;
+  min-height: 48px;
   width: 100%;
   padding: 0.75rem 0.95rem;
   color: var(--text);
@@ -87,7 +87,7 @@
 }
 
 .filter {
-  min-height: 40px;
+  min-height: 48px;
   padding: 0.58rem 0.9rem;
   color: var(--muted);
   background: var(--surface);
@@ -182,7 +182,7 @@
 
 .readButton {
   align-self: flex-start;
-  min-height: 40px;
+  min-height: 48px;
   margin-top: 1.4rem;
   padding: 0.65rem 0.95rem;
   color: var(--white);
@@ -264,7 +264,7 @@
 
 .closeButton {
   flex-shrink: 0;
-  min-height: 40px;
+  min-height: 48px;
   padding: 0.62rem 0.9rem;
   color: var(--text);
   background: var(--surface);

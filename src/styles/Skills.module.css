@@ -43,7 +43,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 }
 
@@ -59,12 +59,8 @@
 
 .card:hover {
   border-color: rgba(108, 99, 255, 0.35);
-  transform: translateY(-3px);
-}
-
-.learningCard {
-  border-style: dashed;
-  border-color: rgba(167, 139, 250, 0.2);
+  box-shadow: var(--glass-shadow), 0 0 22px rgba(6, 182, 212, 0.13);
+  transform: translateY(-3px) scale(1.01);
 }
 
 .cardHead {
@@ -73,18 +69,27 @@
   gap: 1rem;
 }
 
-.icon {
+.ring {
+  display: grid;
   flex-shrink: 0;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-  font-size: 1.5rem;
-  line-height: 1;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at center, var(--bg3) 0 58%, transparent 59%),
+    conic-gradient(var(--accent2) var(--level), rgba(255, 255, 255, 0.08) 0);
+  border-radius: 999px;
+  box-shadow: 0 0 22px rgba(6, 182, 212, 0.12);
+}
+
+.ring span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .catTitle {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
   margin-bottom: 0.35rem;
   color: var(--white);
   font-family: 'Outfit', sans-serif;
@@ -92,49 +97,77 @@
   font-weight: 600;
 }
 
-.learningDot {
-  width: 7px;
-  height: 7px;
-  background: var(--accent2);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(167, 139, 250, 0.65);
-  animation: learningPulse 1.8s ease-in-out infinite;
-}
-
 .catDesc {
-  margin-bottom: 1.25rem;
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.6;
 }
 
-.pillRow {
+.progressTrack {
+  height: 8px;
+  margin-top: 1.3rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.progressTrack span {
+  display: block;
+  width: var(--level);
+  height: 100%;
+  background: var(--premium-gradient);
+  border-radius: inherit;
+  transform-origin: left;
+  animation: fillBar 1s ease both;
+}
+
+.learningTicker {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+  padding: 0.95rem 1.1rem;
+  overflow: hidden;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  border-radius: var(--card-radius);
+  box-shadow: var(--glass-shadow);
 }
 
-.pill {
-  padding: 0.3rem 0.85rem;
-  color: var(--muted);
-  background: var(--bg3);
-  border: 1px solid var(--border-strong);
-  border-radius: 6px;
+.learningDot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent2);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.65);
+  animation: learningPulse 1.8s ease-in-out infinite;
+}
+
+.tickerMask {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: ticker 20s linear infinite;
+}
+
+.tickerTrack span {
+  color: var(--text);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  transition: all 0.2s;
+  font-size: 0.76rem;
+  white-space: nowrap;
 }
 
-.pill:hover {
-  color: var(--white);
-  border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(108, 99, 255, 0.2);
-  transform: translateY(-1px);
-}
-
-.learningPill {
+.tickerTrack span::after {
+  margin-left: 1rem;
   color: var(--accent2);
-  border-color: rgba(167, 139, 250, 0.25);
+  content: '->';
 }
 
 .driveSection {
@@ -166,12 +199,13 @@
   border-radius: 30px;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .trait:hover {
   border-color: rgba(6, 182, 212, 0.32);
-  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.1);
+  transform: translateY(-2px) scale(1.02);
 }
 
 @keyframes learningPulse {
@@ -184,6 +218,26 @@
   50% {
     opacity: 0.45;
     transform: scale(0.75);
+  }
+}
+
+@keyframes fillBar {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
   }
 }
 
@@ -202,7 +256,8 @@
     display: none;
   }
 
-  .card {
+  .card,
+  .learningTicker {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     box-shadow: var(--glass-shadow);
@@ -210,19 +265,19 @@
   }
 
   .card:hover,
-  .pill:hover,
   .trait:hover {
     box-shadow: none;
     transform: none;
   }
 
-  .learningDot {
+  .learningDot,
+  .ring {
     box-shadow: none;
     animation: none;
   }
 
-  .pill:hover,
-  .trait:hover {
-    border-color: var(--border-strong);
+  .progressTrack span,
+  .tickerTrack {
+    animation: none;
   }
 }

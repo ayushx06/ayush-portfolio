@@ -124,6 +124,22 @@ button {
   border: 0;
 }
 
+a,
+button,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 3px;
+}
+
 ::selection {
   color: var(--white);
   background: rgba(6, 182, 212, 0.36);
@@ -148,6 +164,17 @@ a {
 
 .fade-in {
   animation: pageEnter 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-eyebrow {
@@ -304,18 +331,6 @@ a {
     display: none;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    background-attachment: scroll !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease !important;
-    will-change: auto !important;
-  }
-
   [class*='orb'],
   [class*='Orb'],
   [class*='blob'],
@@ -336,6 +351,11 @@ a {
   }
 
   .fade-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal] {
     opacity: 1;
     transform: none;
   }

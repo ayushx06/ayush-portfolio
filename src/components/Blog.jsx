@@ -3,20 +3,20 @@ import styles from '../styles/Blog.module.css'
 
 const posts = [
   {
-    title: 'My Journey from Nepal to IT in New Zealand',
-    summary: 'A short reflection on moving from Pokhara to Auckland, choosing IT, and building a career with patience and practical learning.',
+    title: 'Moving from Pokhara to Auckland: My First Month in NZ Tech',
+    summary: 'A personal reflection on arriving in Auckland, settling into student life, and beginning a New Zealand IT career from the ground up.',
     category: 'Career',
     date: 'May 2026',
     readTime: '4 min read',
     content: [
-      'Moving from Pokhara, Nepal to Auckland has been one of the biggest steps in my personal and professional life. It pushed me to become more independent, organised, and confident in new environments.',
-      'I chose IT because I enjoy understanding how systems work and how technology can solve real problems. My goal is not only to build websites, but to grow into a reliable IT professional who can support users, troubleshoot issues, understand networks, and contribute to practical business technology.',
-      'As a BIT student in New Zealand, I am building my career step by step through coursework, personal projects, and real client experience. I am open to internships and entry-level roles where I can learn quickly, communicate clearly, and become useful to a team.',
+      'Moving from Pokhara to Auckland changed almost every part of my routine. In the first month I had to learn the city, manage study expectations, and get comfortable asking questions in a new academic and professional environment.',
+      'That transition also made my interest in technology feel more practical. I started thinking beyond websites and into the wider IT systems that support real workplaces: networks, helpdesk processes, databases, operating systems, and clear communication with users.',
+      'My goal in New Zealand tech is simple: become useful, reliable, and easy to work with. I am building that through BIT study, personal projects, and small habits like documenting my learning and improving my troubleshooting process.',
     ],
   },
   {
-    title: 'What I’m Learning in Bachelor of IT',
-    summary: 'A snapshot of the technical foundation I am building through programming, networking, systems, databases, cybersecurity, and professional practice.',
+    title: "What I'm Learning in My First Semester of BIT",
+    summary: 'A snapshot of my first-semester BIT foundation: programming, systems thinking, networking, databases, cybersecurity basics, and professional practice.',
     category: 'BIT Study',
     date: 'May 2026',
     readTime: '5 min read',
@@ -24,18 +24,6 @@ const posts = [
       'My Bachelor of IT is helping me build a wider foundation than web development alone. I am learning how software, networks, operating systems, databases, cybersecurity basics, and professional IT practice connect in real workplaces.',
       'The most useful part of the degree is that it encourages both technical thinking and communication. In IT support, helpdesk, networking, and junior systems roles, being able to explain problems clearly is just as important as solving them.',
       'I am using my coursework as a base for small practical projects so recruiters can see how I learn. My focus is steady improvement: write cleaner code, understand systems better, document my work, and keep building evidence of real skills.',
-    ],
-  },
-  {
-    title: 'How I Built My First Client Website',
-    summary: 'What I learned from planning, designing, building, deploying, and improving a real small business website for a trekking guide.',
-    category: 'Web Development',
-    date: 'May 2026',
-    readTime: '6 min read',
-    content: [
-      'My first client website taught me how different real work feels compared with practice projects. The goal was to create a professional online presence for a trekking guide, with clear information, responsive design, and simple ways for visitors to make enquiries.',
-      'I planned the structure, built the pages, added package information, improved mobile responsiveness, and connected practical contact paths such as WhatsApp. I also thought about SEO and how visitors would judge trust from the first few seconds on the site.',
-      'The biggest lesson was ownership. A client project requires communication, testing, deployment, and improvements after feedback. That experience made me more confident and showed me that I enjoy building useful technology for real people.',
     ],
   },
 ]
@@ -97,7 +85,7 @@ export default function Blog() {
 
         <div className={styles.grid}>
           {filteredPosts.map(post => (
-            <article key={post.title} className={styles.card}>
+            <article key={post.title} className={styles.card} data-reveal>
               <div className={styles.metaRow}>
                 <span className={styles.category}>{post.category}</span>
                 <span className={styles.meta}>{post.date} · {post.readTime}</span>

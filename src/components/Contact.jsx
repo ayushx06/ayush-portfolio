@@ -19,22 +19,60 @@ export default function Contact() {
   })
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
+  const [errors, setErrors] = useState({})
+  const [touched, setTouched] = useState({})
+  const [copiedEmail, setCopiedEmail] = useState(false)
+
+  const validateField = (name, value) => {
+    if (!value.trim()) return `${name.charAt(0).toUpperCase() + name.slice(1)} is required.`
+    if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Enter a valid email address.'
+    if (name === 'message' && value.trim().length < 12) return 'Message should be at least 12 characters.'
+    return ''
+  }
+
+  const validateForm = nextData => {
+    const nextErrors = Object.fromEntries(
+      Object.entries(nextData)
+        .map(([name, value]) => [name, validateField(name, value)])
+        .filter(([, message]) => message)
+    )
+
+    setErrors(nextErrors)
+    return nextErrors
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    if (touched[name]) {
+      setErrors(prev => ({ ...prev, [name]: validateField(name, value) }))
+    }
+  }
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target
+    setTouched(prev => ({ ...prev, [name]: true }))
+    setErrors(prev => ({ ...prev, [name]: validateField(name, value) }))
+  }
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('ayushdbs77@gmail.com')
+      setCopiedEmail(true)
+      window.setTimeout(() => setCopiedEmail(false), 1600)
+    } catch {
+      window.location.href = 'mailto:ayushdbs77@gmail.com'
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const nextErrors = validateForm(formData)
+    setTouched({ name: true, email: true, subject: true, message: true })
+    if (Object.keys(nextErrors).length > 0) return
+
     setLoading(true)
     setStatus({ type: '', message: '' })
-
-    console.log('EmailJS env check', {
-      serviceIdLoaded: Boolean(import.meta.env.VITE_EMAILJS_SERVICE_ID),
-      templateIdLoaded: Boolean(import.meta.env.VITE_EMAILJS_TEMPLATE_ID),
-      publicKeyLoaded: Boolean(import.meta.env.VITE_EMAILJS_PUBLIC_KEY),
-    })
 
     try {
       await emailjs.send(
@@ -46,8 +84,7 @@ export default function Contact() {
           subject: formData.subject,
           message: formData.message,
           to_email: 'ayushdbs77@gmail.com',
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }
       )
 
       setStatus({ type: 'success', message: 'Message sent successfully!' })
@@ -91,49 +128,74 @@ export default function Contact() {
                   <div>
                     <div className={styles.cardLabel}>{item.label}</div>
                     <div className={styles.cardVal}>{item.val}</div>
+                    {item.label === 'Email' && <div className={styles.tapHint}>Tap to copy email</div>}
                   </div>
                 </>
               )
 
+              if (item.label === 'Email') {
+                return (
+                  <button key={item.label} type="button" className={styles.contactCard} onClick={copyEmail}>
+                    {inner}
+                    {copiedEmail && <span className={styles.copyToast}>Copied!</span>}
+                  </button>
+                )
+              }
+
               return item.href
-                ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className={styles.contactCard}>{inner}</a>
+                ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className={styles.contactCard} aria-label={`Open ${item.label}: ${item.val}`}>{inner}</a>
                 : <div key={item.label} className={styles.contactCard}>{inner}</div>
             })}
           </div>
 
-          <form className={styles.formWrap} onSubmit={handleSubmit}>
+          <form className={styles.formWrap} onSubmit={handleSubmit} noValidate data-reveal>
             <h3 className={styles.formTitle}>Send a Message</h3>
             {[
-              ['Name', 'name', 'text', 'Your name'],
-              ['Email', 'email', 'email', 'your@email.com'],
-              ['Subject', 'subject', 'text', 'Job opportunity / collaboration'],
-            ].map(([label, name, type, ph]) => (
+              ['Name', 'name', 'text'],
+              ['Email', 'email', 'email'],
+              ['Subject', 'subject', 'text'],
+            ].map(([label, name, type]) => (
               <div key={label} className={styles.formGroup}>
-                <label className={styles.label}>{label}</label>
                 <input
+                  id={name}
                   type={type}
                   name={name}
-                  placeholder={ph}
+                  placeholder=" "
                   value={formData[name]}
                   onChange={handleChange}
-                  className={styles.input}
+                  onBlur={handleBlur}
+                  className={errors[name] ? `${styles.input} ${styles.inputError}` : styles.input}
+                  aria-invalid={Boolean(errors[name])}
+                  aria-describedby={errors[name] ? `${name}-error` : undefined}
                   required
                 />
+                <label className={styles.label} htmlFor={name}>{label}</label>
+                {errors[name] && <p id={`${name}-error`} className={styles.fieldError}>{errors[name]}</p>}
               </div>
             ))}
             <div className={styles.formGroup}>
-              <label className={styles.label}>Message</label>
               <textarea
+                id="message"
                 name="message"
-                placeholder="Tell me about the role or project..."
+                placeholder=" "
                 value={formData.message}
                 onChange={handleChange}
-                className={`${styles.input} ${styles.textarea}`}
+                onBlur={handleBlur}
+                className={errors.message ? `${styles.input} ${styles.textarea} ${styles.inputError}` : `${styles.input} ${styles.textarea}`}
+                aria-invalid={Boolean(errors.message)}
+                aria-describedby={errors.message ? 'message-error' : undefined}
                 required
               />
+              <label className={styles.label} htmlFor="message">Message</label>
+              {errors.message && <p id="message-error" className={styles.fieldError}>{errors.message}</p>}
             </div>
             {status.message && (
               <p className={`${styles.status} ${status.type === 'success' ? styles.success : styles.error}`}>
+                {status.type === 'success' && (
+                  <svg className={styles.checkIcon} viewBox="0 0 52 52" aria-hidden="true">
+                    <path d="M14 27l8 8 17-19" />
+                  </svg>
+                )}
                 {status.message}
               </p>
             )}
