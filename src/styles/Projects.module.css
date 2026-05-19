@@ -1,7 +1,7 @@
 .page {
   position: relative;
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: 0;
   overflow: hidden;
 }
 
@@ -416,8 +416,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .page {
+    padding-top: 0;
+    padding-bottom: 80px;
     overflow-x: hidden;
   }
 
@@ -466,5 +468,70 @@
 
   .copyButton {
     width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner {
+    padding: 1.5rem;
+  }
+
+  .grid,
+  .caseGrid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .preview {
+    height: 200px;
+    border-radius: var(--card-radius) var(--card-radius) 0 0;
+  }
+
+  .projectImage {
+    width: 100%;
+    height: 200px;
+    max-height: none;
+    object-fit: cover;
+  }
+
+  .body {
+    padding: 1.25rem;
+  }
+
+  .caseBlock {
+    padding: 0.9rem;
+  }
+
+  .techRow {
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .actionRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .link {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statsPanel,
+  .footer {
+    padding: 1.25rem;
   }
 }

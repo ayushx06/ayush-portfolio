@@ -5,7 +5,7 @@
   align-items: center;
   gap: 4rem;
   min-height: 100vh;
-  padding: 100px 3rem 3rem;
+  padding: 40px 3rem 3rem;
   overflow: hidden;
   background-color: var(--bg);
 }
@@ -424,50 +424,41 @@
   }
 }
 
-@media (max-width: 900px) {
+/* ── TABLET ───────────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 2.8rem;
-    padding: 100px 1.5rem 3rem;
+    min-height: auto;
+    padding: 2rem 1.5rem 4rem;
   }
 
   .photoCol {
-    grid-row: 1;
-  }
-
-  .content {
-    grid-row: 2;
-  }
-}
-
-@media (max-width: 520px) {
-  .btns {
-    flex-direction: column;
-  }
-
-  .btnPrimary,
-  .btnOutline {
-    width: 100%;
-  }
-
-  .photoWrap {
-    width: min(262px, 100%);
-    height: 338px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    padding: 92px 1.25rem 2.4rem;
-    overflow-x: hidden;
-    background: var(--bg);
-  }
-
-  .gridBg {
     display: none;
   }
 
+  .content {
+    width: 100%;
+  }
+}
+
+/* ── MOBILE ───────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    min-height: auto;
+    height: auto;
+
+    padding: 1rem 1.25rem 6rem;
+    gap: 1.5rem;
+    overflow-x: hidden;
+  }
+
+  /* hide heavy effects on mobile */
+  .gridBg,
   .glowOrb,
   .glowOrb2,
   .meshBg,
@@ -480,84 +471,94 @@
     background: transparent;
   }
 
-  .nameAccent {
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    background-clip: text;
+  .photoCol {
+    display: none;
   }
 
-  .role::after {
-    animation: none;
+  .content {
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .availableBadge {
+    align-self: flex-start;
+  }
+
+  .name {
+    font-size: clamp(3rem, 14vw, 4.4rem);
+    line-height: 0.9;
+    text-align: left;
+  }
+
+  .role {
+    justify-content: flex-start;
+    font-size: 1rem;
+    white-space: normal;
+    text-align: left;
   }
 
   .role span {
-    max-width: 100%;
     white-space: normal;
     animation: none;
   }
 
-  .btnPrimary,
-  .btnOutline,
-  .socialLink,
-  .photoWrap {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transform: none;
+  .role::after {
+    display: none;
   }
 
+  .desc {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  .btns {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .btnPrimary,
   .btnOutline {
-    background: var(--surface-solid);
-    backdrop-filter: none;
+    width: 100%;
+    min-height: 48px;
+    font-size: 0.95rem;
+    transform: none;
+    box-shadow: none;
   }
 
-  .btnPrimary,
   .btnPrimary:hover,
-  .btnOutline:hover,
-  .socialLink:hover,
-  .photoWrap:hover {
-    box-shadow: none;
+  .btnOutline:hover {
     transform: none;
-  }
-
-  .socialLink:hover::after {
-    transform: none;
-  }
-
-  .photoWrap {
-    width: min(210px, 62vw);
-    height: auto;
-    aspect-ratio: 143 / 186;
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    background: transparent;
-    border: 1px solid var(--card-border);
     box-shadow: none;
-    animation: none;
   }
 
-  .photoWrap::before,
-  .photoWrap::after,
-  .photoPicture::before,
-  .photoPicture::after {
-    display: none !important;
+  .visitorCounter {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
 
-  .photoPicture {
-    position: relative;
-    z-index: 2;
-    background: transparent !important;
-    opacity: 1 !important;
-    filter: none !important;
-    mix-blend-mode: normal !important;
+  .links {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
   }
 
-  .photo {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    background: transparent !important;
-    opacity: 1 !important;
-    filter: none !important;
-    mix-blend-mode: normal !important;
-    object-fit: cover !important;
+  .socialLink {
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 0.78rem;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .socialLink:hover {
+    transform: none;
+    box-shadow: none;
   }
 }

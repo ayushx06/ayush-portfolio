@@ -158,6 +158,10 @@
   display: none;
 }
 
+.mobileOverlay {
+  display: none;
+}
+
 .hamburger {
   display: grid;
   gap: 5px;
@@ -216,47 +220,56 @@
     font-size: 0.58rem;
   }
 
+  .mobileOverlay {
+    position: fixed;
+    inset: 56px 0 0;
+    z-index: 190;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(7, 9, 15, 0.92);
+    backdrop-filter: blur(16px);
+  }
+
+  .mobileOverlayOpen {
+    display: flex;
+  }
+
   .mobileMenu {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    width: calc(100% + 2.5rem);
-    margin: 1rem -1.25rem -1rem;
-    padding: 0.8rem 1.25rem 1rem;
-    background: var(--nav-bg);
-    border-top: 1px solid var(--border);
-    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.18);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(24px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-
-  .mobileMenuOpen {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    width: min(320px, calc(100vw - 3rem));
+    padding: 1.5rem;
   }
 
   .mobileMenu .tab {
-    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
     min-height: 48px;
-    padding: 0.85rem 0.9rem;
+    padding: 0.55rem 1rem;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 800;
     opacity: 0;
     transform: translateX(18px);
     transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
     transition-delay: calc(var(--stagger) * 45ms);
   }
 
-  .mobileMenuOpen .tab {
+  .mobileOverlayOpen .tab {
     opacity: 1;
     transform: translateX(0);
   }
 
   .mobileMenu .tab::after {
-    right: 0.9rem;
-    bottom: 0.45rem;
-    left: 0.9rem;
+    right: 1rem;
+    bottom: 0.25rem;
+    left: 1rem;
   }
 }
 
@@ -277,6 +290,10 @@
 
 @media (max-width: 768px) {
   .nav {
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
+    padding: 0.25rem 1rem;
     background: var(--surface-solid);
     box-shadow: none;
     backdrop-filter: none;
@@ -300,8 +317,43 @@
     animation: none;
   }
 
+  .navScrolled {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .tabs,
+  .workPill {
+    display: none;
+  }
+
+  .logo {
+    max-width: none;
+    font-size: 0.98rem;
+  }
+
+  .themeButton {
+    display: none;
+  }
+
+  .mobileOverlay {
+    inset: 56px 0 0;
+    background: rgba(7, 9, 15, 0.9);
+  }
+
   .mobileMenu {
-    background: var(--surface-solid);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+  }
+
+  .tab:hover::after {
+    transform: scaleX(0);
+  }
+
+  .tabActive {
+    color: var(--accent);
+  }
+
+  .tabActive::after {
+    transform: scaleX(1);
   }
 }

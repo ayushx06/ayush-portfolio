@@ -36,6 +36,14 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   const getTabClass = ({ isActive }) =>
     isActive ? `${styles.tab} ${styles.tabActive}` : styles.tab
 
@@ -93,19 +101,25 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ''}`}>
-        {tabs.map((tab, index) => (
-          <NavLink
-            key={tab.path}
-            to={tab.path}
-            end={tab.path === '/'}
-            className={getTabClass}
-            style={{ '--stagger': index }}
-            onClick={() => setOpen(false)}
-          >
-            {tab.label}
-          </NavLink>
-        ))}
+      <div
+        className={open ? `${styles.mobileOverlay} ${styles.mobileOverlayOpen}` : styles.mobileOverlay}
+        onClick={() => setOpen(false)}
+        aria-hidden={!open}
+      >
+        <div className={styles.mobileMenu} onClick={event => event.stopPropagation()}>
+          {tabs.map((tab, index) => (
+            <NavLink
+              key={tab.path}
+              to={tab.path}
+              end={tab.path === '/'}
+              className={getTabClass}
+              style={{ '--stagger': index }}
+              onClick={() => setOpen(false)}
+            >
+              {tab.label}
+            </NavLink>
+          ))}
+        </div>
       </div>
     </nav>
   )

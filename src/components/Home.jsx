@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import profile from '../assets/profile.jpg'
-import profileMobile from '../assets/profile-mobile.jpg'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -87,19 +86,16 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={`${styles.photoCol} fade-in`}>
+      <div className={styles.photoCol}>
         <div className={styles.photoWrap}>
-          <picture className={styles.photoPicture}>
-            <source srcSet={profileMobile} media="(max-width: 768px)" />
-            <img
-              src={profile}
-              alt="Ayush Subedi"
-              className={styles.photo}
-              width="286"
-              height="372"
-              fetchPriority="high"
-            />
-          </picture>
+          <img
+            src={profile}
+            alt="Ayush Subedi"
+            className={styles.photo}
+            width="286"
+            height="372"
+            fetchPriority="high"
+          />
         </div>
       </div>
     </section>

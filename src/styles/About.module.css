@@ -1,7 +1,7 @@
 .page {
   position: relative;
   min-height: 100vh;
-  padding-top: 70px;
+  padding-top: 0;
   overflow: hidden;
 }
 
@@ -437,8 +437,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .page {
+    padding-top: 0;
+    padding-bottom: 80px;
     overflow-x: hidden;
   }
 
@@ -504,5 +506,61 @@
 
   .flipBack {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner {
+    padding: 1.5rem;
+  }
+
+  .storyCard {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .photoWrap {
+    width: 100%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .photo {
+    width: min(160px, 52vw);
+    max-width: 160px;
+    margin: 0 auto;
+  }
+
+  .grid,
+  .infoGrid,
+  .bringGrid,
+  .factGrid {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .card,
+  .bringCard,
+  .flipFace {
+    padding: 1.25rem;
+  }
+
+  .tmItem {
+    grid-template-columns: 14px 1fr;
+    gap: 0.75rem;
+    min-height: 48px;
+  }
+
+  .tmDot {
+    margin-top: 0.5rem;
+  }
+
+  .tmYear {
+    font-size: 0.78rem;
+  }
+
+  .tmText {
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 }

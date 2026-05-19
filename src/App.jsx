@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { BrowserRouter, Routes, Route, Navigate, NavLink, useLocation } from 'react-router-dom'
-import { FaBriefcase, FaCode, FaEnvelope, FaHome } from 'react-icons/fa'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
@@ -9,14 +8,8 @@ import Projects from './components/Projects'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import BottomNav from './components/BottomNav'
 import styles from './styles/App.module.css'
-
-const bottomLinks = [
-  { label: 'Home', path: '/', icon: <FaHome /> },
-  { label: 'Projects', path: '/projects', icon: <FaBriefcase /> },
-  { label: 'Skills', path: '/skills', icon: <FaCode /> },
-  { label: 'Contact', path: '/contact', icon: <FaEnvelope /> },
-]
 
 function ScrollReveal() {
   const location = useLocation()
@@ -68,42 +61,21 @@ function CustomCursor() {
   return <div ref={cursorRef} className={styles.cursor} aria-hidden="true" />
 }
 
-function MobileBottomNav() {
-  return (
-    <nav className={styles.bottomNav} aria-label="Primary mobile navigation">
-      {bottomLinks.map(link => (
-        <NavLink
-          key={link.path}
-          to={link.path}
-          end={link.path === '/'}
-          className={({ isActive }) => isActive ? `${styles.bottomLink} ${styles.bottomLinkActive}` : styles.bottomLink}
-          aria-label={link.label}
-        >
-          {link.icon}
-          <span>{link.label}</span>
-        </NavLink>
-      ))}
-    </nav>
-  )
-}
-
 function AnimatedRoutes() {
   const location = useLocation()
 
   return (
-    <main id="main-content" className={styles.main}>
-      <div key={location.pathname} className={styles.routeTransition}>
-        <Routes location={location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </div>
-    </main>
+    <div id="main-content" className={styles.routeWrapper}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </div>
   )
 }
 
@@ -116,7 +88,7 @@ function AppShell() {
       <ScrollReveal />
       <AnimatedRoutes />
       <Footer />
-      <MobileBottomNav />
+      <BottomNav />
     </div>
   )
 }
