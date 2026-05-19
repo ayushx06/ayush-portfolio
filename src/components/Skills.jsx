@@ -42,7 +42,7 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className={styles.learningTicker} data-reveal>
+     <div className={styles.learningTicker} data-reveal>
           <span className={styles.learningDot} />
           <div className={styles.tickerMask}>
             <div className={styles.tickerTrack}>
